@@ -2,9 +2,9 @@ from rest_framework import routers
 from .views import ArticlesView, TopBackView, FormbackView, FormView, BlogPostViewSet, BlogCategoryViewSet
 from django.urls import path
 
-
 urlpatterns = [
     path('articles/', ArticlesView.as_view()),
+
 ]
 
 

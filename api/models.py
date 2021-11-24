@@ -27,12 +27,11 @@ class BlogPostManager(models.Manager):
 
 class Articles(models.Model):
     blog_category = models.ForeignKey(BlogCategory, verbose_name='Имя категории', on_delete = models.CASCADE, null=True)
-
     name = models.CharField(max_length=200, verbose_name = 'Название')
     text = models.TextField(verbose_name ='Текст')
-
-    image = models.ImageField('Изображение', upload_to='images/', blank=None, null=True)
-
+    image = models.ImageField('Изображение',blank=True, null=True)
+    price = models.CharField(max_length=10, verbose_name = 'Цена',blank=True, null=True)
+    date = models.DateField(verbose_name = 'Дата',blank=True, null=True)
     in_archive = models.BooleanField(default=False)
     objects = BlogPostManager()
 
@@ -46,21 +45,21 @@ class Articles(models.Model):
 
 
 class TopBack(models.Model):
-    name = models.CharField('ФИО', max_length=120)
-    description = models.CharField('Почтовый индекс', max_length=120, blank=True, null=True)
-    email = models.EmailField('Email', max_length=120, blank=True, null=True )
-    phone = models.CharField('Номер телефона', max_length=11)
-    iin = models.CharField('ИИН', max_length=120, blank=True, null=True)
-    adres = models.CharField('Юридический адрес', max_length=120, blank=True, null=True)
-    child = models.CharField('Должность', max_length=120, blank=True, null=True)
-    place = models.CharField('Место работы', max_length=120, blank=True, null=True)
+    message = models.CharField('Message', max_length=120,blank=True, null=False)
+    # description = models.CharField('Описание', max_length=250, blank=True, null=True)
+    # email = models.EmailField('Email', max_length=120, blank=True, null=True )
+    # phone = models.CharField('Номер телефона', max_length=11)
+    # iin = models.CharField('ИИН', max_length=120, blank=True, null=True)
+    # adres = models.CharField('Юридический адрес', max_length=120, blank=True, null=True)
+    # child = models.CharField('Должность', max_length=120, blank=True, null=True)
+    # place = models.CharField('Место работы', max_length=120, blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return self.message
 
     class Meta:
-        verbose_name = 'Физ лицо'
-        verbose_name_plural = 'Физ лица'
+        verbose_name = 'Форма обратной связи'
+        verbose_name_plural = 'Формы обратной связи'
 
 
 class Formback(models.Model):

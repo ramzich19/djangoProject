@@ -12,7 +12,12 @@ from .serializers import ArticlesSerializers
 from .serializers import FormbackSerializers
 from .serializers import FormSerializers
 from .serializers import BlogPostListRetriveSerializer, BlogCategorySerializers, BlogCategoryDetailSerializers
+from django.http import HttpResponse
 
+
+
+def hello(request):
+    return HttpResponse("IOS API")
 
 class ArticlesView(generics.ListAPIView):
     queryset = Articles.objects.all()
