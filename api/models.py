@@ -40,11 +40,12 @@ class Articles(models.Model):
 
 
     class Meta:
-        verbose_name='Мероприятие'
-        verbose_name_plural='Мероприятия'
+        verbose_name='Товар'
+        verbose_name_plural='Товары'
 
 
 class TopBack(models.Model):
+    # articles = models.ForeignKey(Articles, verbose_name = "Имя товара",on_delete = models.CASCADE, blank=True, null=True)
     message = models.CharField('Message', max_length=120,blank=True, null=False)
     # description = models.CharField('Описание', max_length=250, blank=True, null=True)
     # email = models.EmailField('Email', max_length=120, blank=True, null=True )
@@ -56,10 +57,11 @@ class TopBack(models.Model):
 
     def __str__(self):
         return self.message
+        # return f"{self.message} из товаров \"{self.articles.name}\""
 
     class Meta:
-        verbose_name = 'Форма обратной связи'
-        verbose_name_plural = 'Формы обратной связи'
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
 
 
 class Formback(models.Model):

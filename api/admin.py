@@ -5,6 +5,6 @@ from .models import Formback
 admin.site.register(Articles),
 admin.site.register(BlogCategory)
 admin.site.register(TopBack)
-admin.site.register(Formback)
+
 
 
